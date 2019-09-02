@@ -1,0 +1,2 @@
+﻿	测试ffmpeg库的加载,
+	要运行程序需要将ffmpeg动态库放在可执行文件所在目录，就是debug或者release目录下
