@@ -1,0 +1,14 @@
+APP Version: APP_VERSION
+Windows:  6.1.7601, SP 1.0, Product Type 1
+GraphicsCard: SoundDevice: Process:  F:\qtPro\qml\SST\SST_QML_TCP\debug\QmlVideo.exe
+Exception Addr:  00C78108   Module: D:\Qt\Qt5.12.2\5.12.2\mingw73_32\bin\Qt5Cored.dll
+Exception Code:  C0000005
+Read Address:  00000008
+Instruction:  83 79 08 FF 75 14 8B 4B 0C 85 C9 75 14 F6 43 14
+Registers: 
+EAX: 00C78102  EBX: 00000000  ECX: 00000000  EDX: 0008E3C8
+ESI: 74F816DD  EDI: 3BE87508  ESP: 0028FDE0  EBP: 0028FE58
+EIP: 00C78108  EFlags: 00010202
+Call Stack:
+00C78108  D:\Qt\Qt5.12.2\5.12.2\mingw73_32\bin\Qt5Cored.dll
+00411BF0  F:\qtPro\qml\SST\SST_QML_TCP\debug\QmlVideo.exe
