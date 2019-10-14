@@ -6,3 +6,5 @@
 #####* testFFmpeg：ffmpeg第三方库的加载
 
 #####* testVirtualSlot:槽函数为虚函数的测试
+
+#####* testMqtt:Mqtt库的接入测试
