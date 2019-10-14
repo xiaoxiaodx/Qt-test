@@ -1,9 +1,5 @@
-QT += widgets
-
 QT += quick
 CONFIG += c++11
-QT += charts
-QT += qml
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -18,10 +14,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    testchart.cpp \
-    qmlpaint.cpp \
-    widgetosritem.cpp \
-    qmlosrexpmainwindow.cpp
+    barchart.cpp
 
 RESOURCES += qml.qrc
 
@@ -37,7 +30,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    testchart.h \
-    qmlpaint.h \
-    widgetosritem.h \
-    qmlosrexpmainwindow.h
+    barchart.h
