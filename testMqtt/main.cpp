@@ -1,8 +1,5 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-
-
-
 #include "mqtttest.h"
 
 int main(int argc, char *argv[])
@@ -12,7 +9,10 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
 
-    MqttTest tet;
+
+
+    qmlRegisterType<MqttTest>("MqttTest", 1, 0, "MqttTest");
+
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty())

@@ -14,7 +14,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    barchart.cpp
+    barchart.cpp \
+    chartbase.cpp \
+    chartpolyline.cpp \
+    chartbar.cpp \
+    chartPie.cpp
 
 RESOURCES += qml.qrc
 
@@ -30,4 +34,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    barchart.h
+    barchart.h \
+    chartbase.h \
+    chartpolyline.h \
+    chartbar.h \
+    chartPie.h

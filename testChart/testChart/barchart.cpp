@@ -9,6 +9,10 @@ BarChart::BarChart()
     setFlag(QQuickItem::ItemHasContents);
 
     isMousePress = false;
+
+
+    connect(&axisAnimationTimer,&QTimer::timeout,this,&BarChart::slot_timeout_axisAnnimation);
+    connect(&chartAnimationTimer,&QTimer::timeout,this,&BarChart::slot_timeout_chartAnnimation);
 }
 
 
@@ -83,6 +87,8 @@ void BarChart::drawAxis(QPainter *painter)
 
 
     int count = 1;
+
+
     for(float xCurPos = XunitScale ;xCurPos < xAxisDesPt.rx();xCurPos += XunitScale,count++){
 
         QPoint pt1(xCurPos,0);
@@ -165,6 +171,60 @@ QPointF BarChart::realCoordinateTransformation(QPointF realy)
     return axisCoordinateTransformation(QPointF(realy.rx()*XunitScale,realy.ry()*YunitScale));
 }
 
+void BarChart::slot_timeout_axisAnnimation()
+{
+
+
+    XunitScale += animationXRate;
+    YunitScale += animationYRate;
+
+    update();
+
+    annimationCount --;
+    if(annimationCount <= 1)
+        axisAnimationTimer.stop();
+}
+
+void BarChart::slot_timeout_chartAnnimation()
+{
+
+
+    polygon.append(testpolygon.at(testpolygon.count() - annimationCount));
+
+    update();
+
+    annimationCount --;
+    if(annimationCount <= 1)
+        chartAnimationTimer.stop();
+}
+
+void BarChart::startAxisAnimation()
+{
+    annimationCount = 20;
+
+
+    animationXRate = XunitScale / annimationCount;
+    animationYRate = YunitScale / annimationCount;
+    axisAnimationTimer.start(1000 / annimationCount);
+
+
+    XunitScale = 0;
+    YunitScale = 0;
+}
+
+void BarChart::startChartAnimation()
+{
+
+
+    polygon.clear();
+
+    annimationCount = testpolygon.count();
+
+    chartAnimationTimer.start(1000 / annimationCount);
+
+
+}
+
 void BarChart::mousePressEvent(QMouseEvent* event)
 {
 
@@ -176,7 +236,7 @@ void BarChart::mousePressEvent(QMouseEvent* event)
 
     }else if(event->button() == Qt::RightButton){
 
-        polygon<<(QPointF(10.4, 20.5)) << (QPointF(20.2, 30.2))
+        testpolygon<<(QPointF(10.4, 20.5)) << (QPointF(20.2, 30.2))
                <<(QPointF(30.4, 20.5))<< (QPointF(40.2, 30.2))
               <<(QPointF(50.4, 33.5))<< (QPointF(62, 5.2));
 

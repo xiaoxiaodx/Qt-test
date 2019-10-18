@@ -1,27 +1,28 @@
+QT += concurrent
+TEMPLATE = app
+QT += qml quick
+QT += opengl
+QT += gui
 QT += quick
+QT += network
+QT += core
 CONFIG += c++11
+QT += multimedia
 QT += core gui network
 
-DEFINES += QT_DEPRECATED_WARNINGS
 
+TRANSLATIONS = zh_CN.ts en_US.ts
 
+QMAKE_CXXFLAGS_RELEASE += -g
+QMAKE_CFLAGS_RELEASE += -g
+QMAKE_LFLAGS_RELEASE = -mthreads
 
 SOURCES += \
         main.cpp \
-    mqtttest.cpp
+    mqtttest.cpp \
+    mqttpacket.cpp
 
 RESOURCES += qml.qrc
-
-# Additional import path used to resolve QML modules in Qt Creator's code model
-QML_IMPORT_PATH =
-
-# Additional import path used to resolve QML modules just for Qt Quick Designer
-QML_DESIGNER_IMPORT_PATH =
-
-# Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
 
 INCLUDEPATH += $$PWD/third/mqtt/include
 
@@ -29,4 +30,5 @@ LIBS += $$PWD/third/mqtt/lib/libQt5Mqttd.a \
         $$PWD/third/mqtt/lib/libQt5Mqtt.a \
 
 HEADERS += \
-    mqtttest.h
+    mqtttest.h \
+    mqttpacket.h

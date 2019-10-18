@@ -3,6 +3,11 @@
 
 #include "barchart.h"
 
+
+#include "chartpolyline.h"
+#include "chartPie.h"
+#include "chartbar.h"
+
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
@@ -10,6 +15,10 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     qmlRegisterType<BarChart>("BarChart", 1, 0, "BarChart");
+
+    qmlRegisterType<ChartBar>("ChartBar", 1, 0, "ChartBar");
+    qmlRegisterType<ChartPie>("ChartPie", 1, 0, "ChartPie");
+    qmlRegisterType<ChartPolyLine>("ChartPolyLine", 1, 0, "ChartPolyLine");
 
     QQmlApplicationEngine engine;
 
