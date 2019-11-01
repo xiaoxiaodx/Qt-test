@@ -31,7 +31,7 @@ void MqttTest::slot_createMqttConnect(QString ip,int port)
         m_mqttPacket->setMainServerSubTopicName(mainServerSubTopicName);
 
         connect(m_client,&QMqttClient::connected,this,&MqttTest::slot_conneted);
-        connect(m_client,&QMqttClient::disconnected,this,&MqttTest::slot_conneted);
+        connect(m_client,&QMqttClient::disconnected,this,&MqttTest::slot_disConneted);
         connect(m_client,&QMqttClient::messageReceived,this,&MqttTest::slot_receMsg);
 
         if (m_client->state() == QMqttClient::Disconnected) {
