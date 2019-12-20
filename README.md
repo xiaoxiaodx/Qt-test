@@ -8,3 +8,7 @@
 ##### testVirtualSlot:槽函数为虚函数的测试
 
 ##### testMqtt:Mqtt库的接入测试
+
+##### testReadSdcard_fat32 读取磁盘信息
+
+##### testYUV 使用opengl 对yuv数据进行绘制
