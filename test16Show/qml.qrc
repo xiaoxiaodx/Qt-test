@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>VedioLayout.qml</file>
+        <file>VideoLivePlay.qml</file>
+        <file>images/img_delete.png</file>
+    </qresource>
+</RCC>
